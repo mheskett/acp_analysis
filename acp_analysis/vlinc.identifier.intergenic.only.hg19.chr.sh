@@ -91,38 +91,44 @@ bedtools merge -i $out_dir$filename.minus.subtract.merge.$first_merge.bed -d $se
 
 ## this step takes alot of memory. For large files may need to split into more
 ## temporary files on storage.
-awk -v var="$filter_size" -v var2="$filename" '{OFS="\t"} $3-$2>=var{print $1, $2, $3, i++"_plus_"var2}' $out_dir$filename.plus.$first_merge.$second_merge.bed |
-	bedtools intersect -f 0.25 -v -a stdin -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.known.genes.cds.chr.hg19.bed|
-	bedtools coverage -c -F 0.5 -a stdin -b $out_dir$filename.plus.bam |
-	bedtools coverage -a stdin -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.L1s.hg19.chr.bed -F 0.9 |
+echo "before big mem"
+awk -v var="$filter_size" -v var2="$filename" '{OFS="\t"} $3-$2>=var{print $1, $2, $3, i++"_plus_"var2}' $out_dir$filename.plus.$first_merge.$second_merge.bed > $out_dir$filename.tmp1.plus.bed
+	bedtools intersect -f 0.25 -v -a $out_dir$filename.tmp1.plus.bed -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.known.genes.cds.chr.hg19.bed > $out_dir$filename.tmp2.plus.bed
+	bedtools coverage -c -F 0.5 -a $out_dir$filename.tmp2.plus.bed -b $out_dir$filename.plus.bam > $out_dir$filename.tmp3.plus.bed
+	bedtools coverage -a $out_dir$filename.tmp3.plus.bed -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.L1s.hg19.chr.bed -F 0.9 |
 	awk -v var3="$library_size" 'OFS="\t"{print $1, $2, $3, $4, $5 / ( ($3-$2)/1000 ), "+", $9}' > $out_dir$filename.intergenic.plus.$first_merge.$second_merge.$filter_size.vlinc.discovery.bed
 
-awk -v var="$filter_size" -v var2="$filename" -v var3="$library_size" '{OFS="\t"} $3-$2>=var{print $1, $2, $3, i++"_minus_"var2}' $out_dir$filename.minus.$first_merge.$second_merge.bed |
-	bedtools intersect -f 0.25 -v -a stdin -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.known.genes.cds.chr.hg19.bed |
-	bedtools coverage -c -F 0.5 -a stdin -b $out_dir$filename.minus.bam |
-	bedtools coverage -a stdin -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.L1s.hg19.chr.bed -F 0.9 |
+awk -v var="$filter_size" -v var2="$filename" -v var3="$library_size" '{OFS="\t"} $3-$2>=var{print $1, $2, $3, i++"_minus_"var2}' $out_dir$filename.minus.$first_merge.$second_merge.bed > $out_dir$filename.tmp1.minus.bed
+	bedtools intersect -f 0.25 -v -a $out_dir$filename.tmp1.minus.bed -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.known.genes.cds.chr.hg19.bed > $out_dir$filename.tmp2.minus.bed
+	bedtools coverage -c -F 0.5 -a $out_dir$filename.tmp2.minus.bed -b $out_dir$filename.minus.bam > $out_dir$filename.tmp3.minus.bed
+	bedtools coverage -a $out_dir$filename.tmp3.minus.bed -b /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/annotation.files/ucsc.L1s.hg19.chr.bed -F 0.9 |
 	awk -v var3="$library_size" 'OFS="\t"{print $1, $2, $3, $4, $5 / ( ($3-$2)/1000 ), "-", $9}' > $out_dir$filename.intergenic.minus.$first_merge.$second_merge.$filter_size.vlinc.discovery.bed
 
 ## This will create a file specifically for the UCSC genome browser. 
-awk 'OFS="\t"{print "chr"$1, $2, $3, $4, 0, $6}' $out_dir$filename.intergenic.plus.$first_merge.$second_merge.$filter_size.vlinc.discovery.bed | grep -v chrGL | grep -v chrKI > $out_dir$filename.intergenic.$first_merge.$second_merge.$filter_size.vlinc.discovery.plus.browser.bed
-awk 'OFS="\t"{print "chr"$1, $2, $3, $4, 0, $6}' $out_dir$filename.intergenic.minus.$first_merge.$second_merge.$filter_size.vlinc.discovery.bed | grep -v chrGL | grep -v chrKI > $out_dir$filename.intergenic.$first_merge.$second_merge.$filter_size.vlinc.discovery.minus.browser.bed
+awk 'OFS="\t"{print $1, $2, $3, $4, 0, $6}' $out_dir$filename.intergenic.plus.$first_merge.$second_merge.$filter_size.vlinc.discovery.bed | grep -v chrGL | grep -v chrKI > $out_dir$filename.intergenic.$first_merge.$second_merge.$filter_size.vlinc.discovery.plus.browser.bed
+awk 'OFS="\t"{print $1, $2, $3, $4, 0, $6}' $out_dir$filename.intergenic.minus.$first_merge.$second_merge.$filter_size.vlinc.discovery.bed | grep -v chrGL | grep -v chrKI > $out_dir$filename.intergenic.$first_merge.$second_merge.$filter_size.vlinc.discovery.minus.browser.bed
 
 ####
 ####
 ####
 ####
 ## remove the intermediate files if they are not needed for additional visualization
-rm $out_dir$filename.plus.cov.bed
-rm $out_dir$filename.minus.cov.bed
+#rm $out_dir$filename.plus.cov.bed
+#rm $out_dir$filename.minus.cov.bed
 
-#rm $out_dir$filename.plus.subtract.whole.gene.bed
-#rm $out_dir$filename.minus.subtract.whole.gene.bed
+rm $out_dir$filename.tmp1.plus.bed
+rm $out_dir$filename.tmp2.plus.bed
+rm $out_dir$filename.tmp3.plus.bed
+rm $out_dir$filename.tmp1.minus.bed
+rm $out_dir$filename.tmp2.minus.bed
+rm $out_dir$filename.tmp3.minus.bed
 
-#rm $out_dir$filename.plus.subtract.merge.$first_merge.bed
-#rm $out_dir$filename.minus.subtract.merge.$first_merge.bed
 
-#rm $out_dir$filename.plus.$first_merge.$second_merge.bed
-#rm $out_dir$filename.minus.$first_merge.$second_merge.bed
+rm $out_dir$filename.plus.subtract.merge.$first_merge.bed
+rm $out_dir$filename.minus.subtract.merge.$first_merge.bed
+
+rm $out_dir$filename.plus.$first_merge.$second_merge.bed
+rm $out_dir$filename.minus.$first_merge.$second_merge.bed
 
 rm $out_dir$filename.fwd1.bam*
 rm $out_dir$filename.fwd2.bam*
