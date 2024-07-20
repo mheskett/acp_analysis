@@ -97,7 +97,7 @@ sbatch slurm.get.gene.counts.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.p
 				RNA210216MT_6_tACP7c2Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
 ./get.comprehensive.gene.counts.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
 				RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
-				RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed
+				RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
 
 
 ## get ASAR allele specific counts
