@@ -75,13 +75,29 @@ sbatch slurm.get.gene.counts.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.a
 sbatch slurm.get.gene.counts.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed
 sbatch slurm.get.gene.counts.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed
 
-## trying comprehensive gene counts
+## comprehensive gene counts
 
 ./get.comprehensive.gene.counts.sh RNA210216MT_1_tACP6c1_hg19Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
-		RNA210216MT_1_tACP6c1_hg19Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
-		RNA210216MT_1_tACP6c1_hg19Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
-
-
+		  		RNA210216MT_1_tACP6c1_hg19Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_1_tACP6c1_hg19Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
+./get.comprehensive.gene.counts.sh RNA210216MT_1_tACP7c1Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_1_tACP7c1Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_1_tACP7c1Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
+./get.comprehensive.gene.counts.sh RNA210216MT_2_tACP6c2_hg19Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_2_tACP6c2_hg19Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_2_tACP6c2_hg19Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
+./get.comprehensive.gene.counts.sh RNA210216MT_3_tACP6c5_hg19Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_3_tACP6c5_hg19Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_3_tACP6c5_hg19Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
+./get.comprehensive.gene.counts.sh RNA210216MT_4_tACP6c6_hg19Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_4_tACP6c6_hg19Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_4_tACP6c6_hg19Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
+./get.comprehensive.gene.counts.sh RNA210216MT_6_tACP7c2Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_6_tACP7c2Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_6_tACP7c2Aligned.out.samtool.rmdup.allele.counts.haplotype.resolved.counts.faisorted.bed
+./get.comprehensive.gene.counts.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.minus.allele.counts.haplotype.resolved.counts.faisorted.bed \
+				RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.plus.allele.counts.haplotype.resolved.counts.faisorted.bed
 
 
 ## get ASAR allele specific counts
