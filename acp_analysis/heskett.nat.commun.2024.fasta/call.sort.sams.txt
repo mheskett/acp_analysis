@@ -1,0 +1,36 @@
+sbatch slurm.samtools.process.sam.sh eb3_2_clone10_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone10_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone13_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone13_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone15_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone15_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone2_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone2_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone3_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone3_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone4_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh eb3_2_clone4_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh gm12878_clone4_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh gm12878_clone4_late_rt.sam ./
+sbatch slurm.samtools.process.sam.sh gm12878_clone5_early_rt.sam ./
+sbatch slurm.samtools.process.sam.sh gm12878_clone5_late_rt.sam ./
+
+sbatch slurm.samtools.process.bam.sh eb3_2_clone10Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh eb3_2_clone13Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh eb3_2_clone15Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh eb3_2_clone2Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh eb3_2_clone3Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh eb3_2_clone4Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh gm12878_clone4Aligned.out.bam ./
+sbatch slurm.samtools.process.bam.sh gm12878_clone5Aligned.out.bam ./
+
+sbatch slurm.allele.counts.from.bam.sh eb3_2_clone10Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.allele.counts.from.bam.sh eb3_2_clone13Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.allele.counts.from.bam.sh eb3_2_clone15Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.allele.counts.from.bam.sh eb3_2_clone2Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.allele.counts.from.bam.sh eb3_2_clone3Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.allele.counts.from.bam.sh eb3_2_clone4Aligned.out.samtool.rmdup.bam ./
+
+
+gm12878_clone4Aligned.out.samtool.rmdup.bam
+gm12878_clone5Aligned.out.samtool.rmdup.bam

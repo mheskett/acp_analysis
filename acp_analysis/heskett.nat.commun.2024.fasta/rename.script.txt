@@ -1,0 +1,1 @@
+awk '{print $8,$9}' filereport_read_run_PRJEB52794_tsv.txt  | awk '{split($1,a,";");split($2,b,";");print a[1],a[2],b[1],b[2]}' | awk '{split($1,z,"/");split($2,y,"/");split($3,x,"/");split($4,w,"/");print "mv "y[7],w[6]}'

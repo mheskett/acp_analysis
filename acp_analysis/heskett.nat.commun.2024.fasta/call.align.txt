@@ -1,0 +1,48 @@
+#!/bin/bash
+sbatch slurm_align_paired.sh eb3_2_clone10_rna_1.fastq.gz eb3_2_clone10_rna_2.fastq.gz eb3_2_clone10
+sbatch slurm_align_paired.sh eb3_2_clone13_rna_1.fastq.gz eb3_2_clone13_rna_2.fastq.gz eb3_2_clone13
+sbatch slurm_align_paired.sh eb3_2_clone15_rna_1.fastq.gz eb3_2_clone15_rna_2.fastq.gz eb3_2_clone15
+sbatch slurm_align_paired.sh eb3_2_clone2_rna_1.fastq.gz eb3_2_clone2_rna_2.fastq.gz eb3_2_clone2
+sbatch slurm_align_paired.sh eb3_2_clone3_rna_1.fastq.gz eb3_2_clone3_rna_2.fastq.gz eb3_2_clone3
+sbatch slurm_align_paired.sh eb3_2_clone4_rna_1.fastq.gz eb3_2_clone4_rna_2.fastq.gz eb3_2_clone4
+sbatch slurm_align_paired.sh gm12878_clone4_rna_1.fastq.gz gm12878_clone4_rna_2.fastq.gz gm12878_clone4
+sbatch slurm_align_paired.sh gm12878_clone5_rna_1.fastq.gz gm12878_clone5_rna_2.fastq.gz gm12878_clone5
+
+
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone10_early_rt_1.fastq.gz eb3_2_clone10_early_rt_2.fastq.gz eb3_2_clone10_early_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone10_late_rt_1.fastq.gz eb3_2_clone10_late_rt_2.fastq.gz eb3_2_clone10_late_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone13_early_rt_1.fastq.gz eb3_2_clone13_early_rt_2.fastq.gz eb3_2_clone13_early_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone13_late_rt_1.fastq.gz eb3_2_clone13_late_rt_2.fastq.gz eb3_2_clone13_late_rt 
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone15_early_rt_1.fastq.gz eb3_2_clone15_early_rt_2.fastq.gz eb3_2_clone15_early_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone15_late_rt_1.fastq.gz eb3_2_clone15_late_rt_2.fastq.gz eb3_2_clone15_late_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone2_early_rt_1.fastq.gz eb3_2_clone2_early_rt_2.fastq.gz eb3_2_clone2_early_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone2_late_rt_1.fastq.gz eb3_2_clone2_late_rt_2.fastq.gz eb3_2_clone2_late_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone3_early_rt_1.fastq.gz eb3_2_clone3_early_rt_2.fastq.gz eb3_2_clone3_early_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone3_late_rt_1.fastq.gz eb3_2_clone3_late_rt_2.fastq.gz eb3_2_clone3_late_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone4_early_rt_1.fastq.gz eb3_2_clone4_early_rt_2.fastq.gz eb3_2_clone4_early_rt
+sbatch slurm.call.bwa.hg19.sh eb3_2_clone4_late_rt_1.fastq.gz eb3_2_clone4_late_rt_2.fastq.gz eb3_2_clone4_late_rt
+sbatch slurm.call.bwa.hg19.sh gm12878_clone4_early_rt_1.fastq.gz gm12878_clone4_early_rt_2.fastq.gz gm12878_clone4_early_rt
+sbatch slurm.call.bwa.hg19.sh gm12878_clone4_late_rt_1.fastq.gz gm12878_clone4_late_rt_2.fastq.gz gm12878_clone4_late_rt
+sbatch slurm.call.bwa.hg19.sh gm12878_clone5_early_rt_1.fastq.gz gm12878_clone5_early_rt_2.fastq.gz gm12878_clone5_early_rt
+sbatch slurm.call.bwa.hg19.sh gm12878_clone5_late_rt_1.fastq.gz gm12878_clone5_late_rt_2.fastq.gz gm12878_clone5_late_rt
+
+
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone10_early_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone10_late_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone13_early_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone13_late_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone15_early_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone15_late_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone2_early_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone2_late_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone3_early_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone3_late_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone4_early_rt.sorted.markdup.bam ./
+sbatch slurm.allele.counts.from.bam.repliseq.sh eb3_2_clone4_late_rt.sorted.markdup.bam ./
+
+sbatch slurm.gm12878.allele.counts.from.bam.sh gm12878_clone4Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.gm12878.allele.counts.from.bam.sh gm12878_clone5Aligned.out.samtool.rmdup.bam ./
+sbatch slurm.gm12878.allele.counts.from.bam.repliseq.sh gm12878_clone4_early_rt.sorted.markdup.bam ./
+sbatch slurm.gm12878.allele.counts.from.bam.repliseq.sh gm12878_clone4_late_rt.sorted.markdup.bam ./
+sbatch slurm.gm12878.allele.counts.from.bam.repliseq.sh gm12878_clone5_early_rt.sorted.markdup.bam ./
+sbatch slurm.gm12878.allele.counts.from.bam.repliseq.sh gm12878_clone5_late_rt.sorted.markdup.bam ./
