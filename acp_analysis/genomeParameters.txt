@@ -1,0 +1,19 @@
+### /home/users/heskett/miniconda3/envs/for_star/bin/STAR   --runMode genomeGenerate      --runThreadN 6   --genomeDir /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis   --genomeFastaFiles /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/Homo_sapiens.GRCh37.dna.primary_assembly.fa      --sjdbGTFfile /home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/Homo_sapiens.GRCh37.87.gtf   --sjdbOverhang 100
+### GstrandBit 32
+versionGenome	2.7.4a
+genomeType	Full
+genomeFastaFiles	/home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/Homo_sapiens.GRCh37.dna.primary_assembly.fa 
+genomeSAindexNbases	14
+genomeChrBinNbits	18
+genomeSAsparseD	1
+genomeTransformType	None
+genomeTransformVCF	-
+sjdbOverhang	100
+sjdbFileChrStartEnd	- 
+sjdbGTFfile	/home/exacloud/gscratch/ThayerLab/heskett/acp_analysis/Homo_sapiens.GRCh37.87.gtf
+sjdbGTFchrPrefix	-
+sjdbGTFfeatureExon	exon
+sjdbGTFtagExonParentTranscript	transcript_id
+sjdbGTFtagExonParentGene	gene_id
+sjdbInsertSave	Basic
+genomeFileSizes	3184562992 24202895775

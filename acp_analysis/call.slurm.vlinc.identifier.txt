@@ -1,0 +1,7 @@
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_1_tACP6c1_hg19Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_1_tACP7c1Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_2_tACP6c2_hg19Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_3_tACP6c5_hg19Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_4_tACP6c6_hg19Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_6_tACP7c2Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
+sbatch slurm.vlinc.identifier.intergenic.only.hg19.chr.sh RNA210216MT_7_tACP7c4Aligned.out.samtool.rmdup.bam ./ 500 10000 50000
