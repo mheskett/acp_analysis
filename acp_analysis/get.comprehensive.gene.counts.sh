@@ -1,6 +1,6 @@
 #!/bin/bash
 
-plus_input=$1 ## BAM file from BWA, or whatever.
+plus_input=$1
 minus_input=$2
 total_input=$3
 #out_dir=$4
@@ -16,28 +16,27 @@ filename_total=${d%.*} ### removes file extension
 
 ## input is the haplotype resolved allele counts bed file
 source activate for_bedtools
-
 ######
-bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.plus.bed \
-             -b $plus_input \
+bedtools sort -i $plus_input -g Homo_sapiens.GRCh37.dna.primary_assembly.fa.fai | bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.plus.nochr.sorted.bed \
+             -b stdin \
              -o sum,sum -c 6,7 | awk '$9!="."{print $0}' | awk 'OFS="\t" {print $0,"plus"}' > $filename_plus.gene.counts.plus.bed
 ####
-bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.minus.bed \
-             -b $minus_input \
+bedtools sort -i $minus_input -g Homo_sapiens.GRCh37.dna.primary_assembly.fa.fai | bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.minus.nochr.sorted.bed \
+             -b stdin \
        	     -o sum,sum -c 6,7 | awk '$9!="."{print $0}' | awk 'OFS="\t" {print $0,"minus"}' > $filename_minus.gene.counts.minus.bed
 ####
-bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.bed \
-             -b $total_input \
+bedtools sort -i $total_input -g Homo_sapiens.GRCh37.dna.primary_assembly.fa.fai | bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.nochr.sorted.bed \
+             -b stdin \
              -o sum,sum -c 6,7 | awk '$9!="."{print $0}' | awk 'OFS="\t" {print $0,"total"}' > $filename_minus.gene.counts.total.bed
 
 ### plus genes with minus RNA antisense
-bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.plus.bed \
-             -b $minus_input \
+bedtools sort -i $minus_input -g Homo_sapiens.GRCh37.dna.primary_assembly.fa.fai | bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.plus.nochr.sorted.bed \
+             -b stdin \
              -o sum,sum -c 6,7 | awk '$9!="."{print $0}'| awk 'OFS="\t" {print $0,"antisense"}' > $filename_minus.gene.counts.plus.minus.antisense.bed
 
 ### minus genes with plus RNA antisense
-bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.minus.bed \
-             -b $plus_input \
+bedtools sort -i $plus_input -g Homo_sapiens.GRCh37.dna.primary_assembly.fa.fai | bedtools map -a ./annotation.files/ucsc.known.gene.hg19.txn.start.stop.bed.cds.only.first.isoform.minus.nochr.sorted.bed \
+             -b stdin \
              -o sum,sum -c 6,7 | awk '$9!="."{print $0}' | awk 'OFS="\t" {print $0,"antisense"}' > $filename_minus.gene.counts.minus.plus.antisense.bed
 
 ### now cat everything together and sort if you want, and then go to python for "add.stats.genes.py"

@@ -8,7 +8,7 @@ b=$(basename $input) # removes path to file
 name=${b%.*} #removes file extension
 out_dir=$2
 
-
+source activate for_samtools
 echo "Input file: " $input 
 echo "Sample name: " $name
 
