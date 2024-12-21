@@ -17,3 +17,10 @@ python align.haplotypes.py --bed eb3_2_clone3_early_rt.sorted.markdup.allele.cou
 python align.haplotypes.py --bed eb3_2_clone3_late_rt.sorted.markdup.allele.counts.bed --out_directory ./
 python align.haplotypes.py --bed eb3_2_clone4_early_rt.sorted.markdup.allele.counts.bed --out_directory ./
 python align.haplotypes.py --bed eb3_2_clone4_late_rt.sorted.markdup.allele.counts.bed --out_directory ./
+
+python align.haplotypes.py --bed gm12878_clone4Aligned.out.samtool.rmdup.allele.counts.bed --out_directory ./
+python align.haplotypes.py --bed gm12878_clone4_early_rt.sorted.markdup.allele.counts.bed --out_directory ./
+python align.haplotypes.py --bed gm12878_clone4_late_rt.sorted.markdup.allele.counts.bed --out_directory ./
+python align.haplotypes.py --bed gm12878_clone5Aligned.out.samtool.rmdup.allele.counts.bed --out_directory ./
+python align.haplotypes.py --bed gm12878_clone5_early_rt.sorted.markdup.allele.counts.bed --out_directory ./
+python align.haplotypes.py --bed gm12878_clone5_late_rt.sorted.markdup.allele.counts.bed --out_directory ./
