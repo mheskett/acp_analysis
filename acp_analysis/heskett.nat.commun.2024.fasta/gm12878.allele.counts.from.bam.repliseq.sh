@@ -8,8 +8,8 @@ b=$(basename $input) ## removes /path/to/file
 filename=${b%.*} ### removes file extension
 out_dir=$2
 
-bcftools mpileup -R NA12878.haplotypes.het.bed \
-  -f ../hg19.ethan.fa \
+bcftools mpileup -R NA12878.haplotypes.het.nochr.bed \
+  -f ../grch37/Homo_sapiens.GRCh37.dna.primary_assembly.fa \
   -a DP,AD \
   -q 20 \
   -d 6000 \
@@ -21,6 +21,6 @@ bcftools mpileup -R NA12878.haplotypes.het.bed \
 
 ## turn this table into a bed file so that it can be intersected with the haplotype resolved file
 tail -n +2 $out_dir$filename.table | awk 'OFS="\t"{print $1,$2-1,$2,$3,$4,$5}' |
-  bedtools intersect -a stdin -b NA12878.haplotypes.het.bed -wa -wb > $out_dir$filename.allele.counts.bed
+  bedtools intersect -a stdin -b NA12878.haplotypes.het.nochr.bed -wa -wb > $out_dir$filename.allele.counts.bed
 
 ## plug this into python script to filter and align the haplotypes to get final file
