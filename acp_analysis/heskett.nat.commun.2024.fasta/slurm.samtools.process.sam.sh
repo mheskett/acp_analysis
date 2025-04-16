@@ -1,10 +1,11 @@
 #!/bin/bash
 
-#SBATCH --partition=exacloud
+#SBATCH --partition=batch
 #SBATCH --mem 60000
-#SBATCH -c 16
-#SBATCH --time=1000
+#SBATCH -c 8
+#SBATCH --time=2000
+#SBATCH -A thayerlab
 
 source activate for_samtools
 
-./samtools.process.sam.sh $1 $2
+srun ./samtools.process.sam.sh $1 $2
