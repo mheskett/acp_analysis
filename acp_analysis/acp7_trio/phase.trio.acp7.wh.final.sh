@@ -32,3 +32,6 @@ for chrom in `seq 1 22` X; do srun --mem 4000 --time 30 filter.vcf.gt.high.pass.
 ## Call WhatsHap with filtered
 for chrom in `seq 1 22` X; do sbatch slurm.call.whatshap.sh acp7_joint.fb30.chr$chrom.vcf.no.missing.vcf.gz $chrom ./ & done
 
+## Cat the beds together to get the final het hap file
+
+cat *hets.bed | sort -k1,1 -k2,2n > acp7_joint.fb30.all.chrom.no.missing.wh.phased.final.hets.bed
